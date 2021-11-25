@@ -6,11 +6,12 @@ const mongoose = require("mongoose");
 
 // Importing routes
 const dashboardRoutes=require("./routes/dashboard");
+const productsRoutes=require('./routes/products');
 
 // Connection to DB
 mongoose.connect("mongodb://localhost/tienda")
 .then(db=> console.log("Connected to database"))
-.catch(err=>console.log("Couldn't connect to DB"))
+.catch(err=>console.log("Couldn't connect to DB"));
 // Settings
 app.set("appName", "Tienda");
 app.set("port", 4242);
@@ -39,14 +40,8 @@ app.get("/", (req, res) => {
 app.use(logger);
 
 app.use("/dashboard",dashboardRoutes);
+app.use("/products",productsRoutes);
 
-app.get("/products", (req, res) => {
-    data = [{ id: 1, productName: "Pollo", quantity: 30, store: "Bogotá" }, { id: 2, productName: "Papa", quantity: 1200, store: "Cali" }, { id: 3, productName: "Coco", quantity: 25, store: "Medellin" }]
-    res.render("products.ejs", { products: data });
-});
-app.post("/products", (req, res) => {
-
-})
 
 app.listen(app.get("port"), () => {
     console.log(`App listening at port ${app.get("port")}`)
