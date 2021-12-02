@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 // Importing routes
 const dashboardRoutes=require("./routes/dashboard");
 const productsRoutes=require('./routes/products');
+const loginRoutes=require("./routes/login")
 
 // Connection to DB
 mongoose.connect("mongodb://localhost/tienda")
@@ -27,20 +28,19 @@ function logger(req, res, next) {
     console.log("request recieved");
     next();
 }
-function productSubmit(req, res) {
-
-}
 
 // Routes
 app.get("/", (req, res) => {
     data = [{ name: "Dan" }, { name: "Hal" }, { name: "Roy" }]
-    res.render("index.ejs", { users: data });
+    title="Index";
+    res.render("index.ejs", { users: data, title:title });
 });
 
 app.use(logger);
 
 app.use("/dashboard",dashboardRoutes);
 app.use("/products",productsRoutes);
+app.use("/login",loginRoutes);
 
 
 app.listen(app.get("port"), () => {
