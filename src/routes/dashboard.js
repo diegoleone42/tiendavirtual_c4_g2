@@ -1,11 +1,20 @@
 const express = require("express");
 const router=express.Router();
 
+// Models
+const Store=require("../models/sucursales");
 
-router.get("/",(req, res) => {
-    title="Dashboard";
-    data=[{id:1,cityName:"Bogotá",stats:{profits:20000000,clients:1654,stock:589}},{id:2,cityName:"Cali",stats:{profits:35000000,clients:1343,stock:349}},{id:3,cityName:"Medellin",stats:{profits:35000000,clients:1343,stock:349}}]
+// Routes
+router.get("/",async (req, res) => {
+    const title="Dashboard";
+    const data = await Store.find();
     res.render("dashboard",{cities:data,title:title});
+});
+
+router.post("/addStore", async (req,res)=>{
+    const newStore = new Store(req.body);
+    await newStore.save();
+    res.send("recieved")
 });
 
 module.exports=router;

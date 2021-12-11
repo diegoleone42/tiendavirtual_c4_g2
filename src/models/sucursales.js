@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Sucursal = new Schema({
-    nombre_sucursal:String,
-    cantidad_productos:Number,
-    ganancias:Number,
-    cantidad_clientes:Number,
-    status:{
-        type:Boolean,
-        default:false
-    }
+const sucursalSchema = new Schema({
+    nombre_sucursal: {
+        type: String,
+        unique: true
+    },
+    cantidad_productos: { type: Number, default: 0 },
+    ganancias: { type: Number, default: 0 },
+    cantidad_clientes: { type: Number, default: 0 },
 })
-module.exports=mongoose.model("sucursales",Sucursal)
+module.exports = mongoose.model("branchOffice", sucursalSchema);

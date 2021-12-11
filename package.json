@@ -13,18 +13,24 @@
     "url": "git+https://github.com/diegoleone42/tiendavirtual_c4_g2.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Defalt",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/diegoleone42/tiendavirtual_c4_g2/issues"
   },
   "homepage": "https://github.com/diegoleone42/tiendavirtual_c4_g2#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "connect-flash": "^0.1.1",
     "ejs": "^3.1.6",
+    "ejs-mate": "^3.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "mongodb": "^4.2.0",
     "mongoose": "^6.0.13",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0"
   }
 }

@@ -3,33 +3,51 @@
     <div class="container">
         <div class="row row-cols-3">
             <% cities.forEach(function(city){ %>
-                <div class="col card" >
+                <div class="col card">
                     <div class="card-body">
-                            <h1>
-                                <%= city.cityName %>
-                            </h1>
-                            <div class="container-sm">
-                                <h2>Recaudado:</h2>
-                                <h3>
-                                    <%= city.stats.profits%>
-                                </h3>
-                            </div>
-                            <div class="container">
-                                <h2>Total Clientes:</h2>
-                                <h3>
-                                    <%= city.stats.clients %>
-                                </h3>
-                            </div>
-                            <div class="container">
-                                <h2>Productos en stock:</h2>
-                                <h3>
-                                    <%= city.stats.stock %>
-                                </h3>
-                            </div>
-                       
+                        <h1>
+                            <%= city.nombre_sucursal %>
+                        </h1>
+                        <div class="container-sm">
+                            <h2>Recaudado:</h2>
+                            <h3>
+                                <%= city.ganancias%>
+                            </h3>
+                        </div>
+                        <div class="container">
+                            <h2>Total Clientes:</h2>
+                            <h3>
+                                <%= city.cantidad_clientes %>
+                            </h3>
+                        </div>
+                        <div class="container">
+                            <h2>Productos en stock:</h2>
+                            <h3>
+                                <%= city.cantidad_productos %>
+                            </h3>
+                        </div>
+
                     </div>
                 </div>
-            <% })%>
+                <% })%>
+        </div>
+    </div>
+
+    <!-- Add form-->
+    <div class="container container-fluid mb-4">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/dashboard/addStore" method="post">
+                        <h3 class="h3 mb-3">Agregar ciudad</h3>
+                        <div class="form-group mb-2">
+                            <label for="nombre_sucursal">Nombre de sucursal</label>
+                            <input type="text" name="nombre_sucursal" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Agregar producto</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <%- include('partials/_footer') -%>
