@@ -1,0 +1,10 @@
+<div class="form-group mb-3">
+    <label for="ciudad">Ciudad</label>
+    <select name="ciudad" id="" class="form-select" required>
+      <% cities.forEach(function(city){ %>
+        <option value="<%= city._id %>">
+          <%= city.nombre_sucursal %>
+        </option>
+        <% }) %>
+    </select>
+  </div>

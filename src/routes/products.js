@@ -17,7 +17,7 @@ async function getData(database,city){
     var products;
     if (city!=""){
         products = await database.find({"ciudad_producto":city}).populate("ciudad_producto");
-        return products
+        return products;
     }
     else{
        products = await database.find().populate("ciudad_producto");
@@ -38,7 +38,6 @@ router.get("/", async (req, res) => {
     else {
         products = await getData(TableProduct,"");
     }
-    
     const cities = await Cities.find();
     res.render("products", { products, title, cities });
 });

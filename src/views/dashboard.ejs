@@ -1,4 +1,5 @@
-<%- include('partials/_header') -%>
+<%- layout('layouts/main.ejs') -%>
+
     <h1 class="h1 ms-5 mb-5">Dashboard</h1>
     <div class="container">
         <div class="row row-cols-3">
@@ -34,6 +35,7 @@
     </div>
 
     <!-- Add form-->
+    <% if(user.role == "administrator"){ %>
     <div class="container container-fluid mb-4">
         <div class="row">
             <div class="card">
@@ -50,4 +52,7 @@
             </div>
         </div>
     </div>
-    <%- include('partials/_footer') -%>
+    <% } else{ %>
+        <div hidden></div>
+        <% } %>
+   

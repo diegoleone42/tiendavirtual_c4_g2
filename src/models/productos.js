@@ -6,7 +6,7 @@ const productoSchema = new Schema({
     cantidad_producto:Number,
     precio_producto:Number,
     ciudad_producto:{
-        type:mongoose.Types.ObjectId, 
+        type: mongoose.Types.ObjectId, 
         ref:'branchOffice'}
 });
 module.exports=mongoose.model("Producto",productoSchema);

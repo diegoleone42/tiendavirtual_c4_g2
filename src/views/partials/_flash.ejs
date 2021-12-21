@@ -1,0 +1,15 @@
+<% if(flashErrorMessage !="" ) { %>
+    <div class="alert alert-danger">
+        <%= flashErrorMessage %>
+    </div>
+<% } %>
+<% if(flashSuccessMessage !="" ) { %>
+    <div class="alert alert-success">
+        <%= flashSuccessMessage %>
+    </div>
+<% } %>
+<% if(user !=null ) { %>
+    <div class="alert alert-info">
+        <%= user.nombre_usuario %>
+    </div>
+<% } %>

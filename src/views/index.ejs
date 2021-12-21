@@ -1,8 +1,9 @@
-<%- include('partials/_header') -%>
+<%- layout('layouts/main.ejs') -%>
+
     <h1>Index Template</h1>
     <ul>
         <% users.forEach( function(people){ %>
             <li><%= people.name %></li>
             <% }) %>
     </ul>
-    <%- include('partials/_footer') -%>
+   

@@ -4,7 +4,13 @@ const schema = mongoose.Schema;
 
 const userSchema = new schema({
     nombre_usuario:String,
-    password:String
+    password:String,
+    role:String,
+    ciudad:{
+       type:mongoose.Types.ObjectId,
+       ref:'branchOffice'
+      }
+    
 });
 
 userSchema.methods.encryptPassword = (password) =>{
